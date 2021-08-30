@@ -31,3 +31,13 @@ Launching quadcopter in gazebo
 roslaunch quadcopter quad_gazebo.launch
 ```
 
+**Publishing velocity to propeller joints:**
+* Topic - /quad/joint_motor_controller/command
+* msg -  std_msgs/Float64MultiArray
+```
+rostopic pub -1 /quad/joint_motor_controller/command std_msgs/Float64MultiArray "data: [100, -100, 100, -100]"
+```
+Provides 100 unit of speed to all propeller joints
+
+
+
