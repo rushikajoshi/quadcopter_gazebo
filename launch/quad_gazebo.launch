@@ -15,16 +15,11 @@
 		
 		<node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-param robot_description -urdf -model quad" />
 		
-		<rosparam file="$(find quadcopter)/config/quad_control.yaml" command="load" ns="/quad" />
+		<rosparam file="$(find quadcopter)/config/quad_control.yaml" command="load"/>
 		
-		<!--<node name="control_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="namespace=/Kwad
-		/Kwad/joint_state_controller
-		/Kwad/joint_fr_motor_controller
-		/Kwad/joint_fl_motor_controller
-		/Kwad/joint_bl_motor_controller
-		/Kwad/joint_br_motor_controller" />-->
 		
-		<node name="control_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="--namespace=/quad joint_state_controller joint_motor_controller" />
+		
+		<node name="control_spawner" pkg="controller_manager" type="spawner" respawn="true" output="screen" ns="/quad" args="joint_state_controller joint_motor_controller" />
 		
 		<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
 			<!--<remap from="/joint_states" to="/Kwad/joint_states" />-->		
