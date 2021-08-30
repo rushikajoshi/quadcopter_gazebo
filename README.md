@@ -39,5 +39,5 @@ rostopic pub -1 /quad/joint_motor_controller/command std_msgs/Float64MultiArray 
 ```
 Provides 100 unit of speed to all propeller joints
 
-
+Note: Camera, Depth Camera, 2D LiDar, IMU sensors have been added to Quadcopter.
 
